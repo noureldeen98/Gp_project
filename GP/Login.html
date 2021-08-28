@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Login form</title>
+<!-- Latest compiled and minified CSS -->
+<link href="css\bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" href="login.css">
+
+
+
+</head>
+
+<body class="bg-img"> 
+  
+  <!-- class="bg-light"-->
+ 
+<!-- <img class="bg-img" src="iStock-1213090148.jpg" height="100vh">-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <p style="margin-top: 5px;font-weight: bolder;">COVID-19 <span style="color: crimson;">prediction</span></p>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="contact.html">Register</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="py-5 text-center" >
+        <img class="d-block mx-auto mb-4" src="images.png" alt="" width="340" height="200">
+        <!--class="d-block mx-auto mb-4" -->
+        <h2>Login form</h2>
+        <p class="lead">Welcome Doctor, you can Login to start your work *_*</p>
+      </div>
+
+      
+<fieldset class="py-5 text-center" >
+  
+  <form name="frmlogin" class="needs-validation " method="post" action="http://localhost:8080/GP uI/login.php" >
+    <p>
+      <label for="email"  >Doctor Email</label>
+      <input type="email"  class="form-control"  name="txtEmail" id="txtEmail" placeholder="Email" value="" required>
+      <!--<input type="text"  class="form-control"  name="txtEmail" id="txtEmail" placeholder="Email" value="" required>-->
+      <div class="invalid-feedback">
+        Valid first name is required.
+      </div>
+    </p>
+    <p>
+      <label for="phone">Password</label>
+      <input type="password"  class="form-control"  name="txtPass" id="txtPass"  value="" placeholder="must contain from 5 to 8 characters that are of at least one number, and one uppercase and lowercase letter" required minlength="5" maxlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,8}">
+      <div class="invalid-feedback">
+        Valid Password is required.
+      </div>
+    </p>
+
+    <p>&nbsp;</p>
+    <p>
+      <input type="submit" name="Submit" id="Submit" value="Login"  class="btn btn-primary btn-lg btn-block" style=" background: linear-gradient(to bottom right, #0066cc 0%, #66ffcc 100%);" > 
+    </p>
+  </form>
+</fieldset>
+
+</div>
+        <!--  </div>-->
+       <!-- <script src="D:\GP uI\js\jqeury-1.11.js"></script>-->
+        <script src="js\jqeury-1.11.js"></script>
+<!--<script src="D:\GP uI\js\bootstrap.js"></script>-->
+<script src="js\bootstrap.js"></script>
+</body>
+</html>

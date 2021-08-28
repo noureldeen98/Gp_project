@@ -1,0 +1,36 @@
+
+nav{
+    background: linear-gradient(to bottom, #00ffff 0%, #3366cc 100%);
+    font-style: italic;
+    font-weight: bolder;
+
+
+}
+
+
+ fieldset form{
+    width: 500px;
+    height: auto;
+    background: linear-gradient(to bottom, #00ffff 0%, #3366cc 100%);
+    text-align: center;
+    padding: 15px;
+    display: inline-block;
+    width: 50vw; 
+   
+
+
+
+  
+
+    
+}
+form label{
+    padding: 10px;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+
+
+
+

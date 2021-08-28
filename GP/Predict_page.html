@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<title>COVID-19 TESTING</title>
+
+       <!-- <link href="D:\GP uI\css\bootstrap.css" rel="stylesheet">-->
+       <link href="css\bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" href="Register.css">
+	</head>
+
+	<body>
+     
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <p style="margin-top: 5px;font-weight: bolder;">COVID-19 <span style="color: crimson;">prediction</span></p>
+              
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Register</a>
+                  </li>
+          
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+     
+          <div class="container">
+
+		<h3>COVID-19 TESTING USING X-RAY IMAGES</h3>
+		<input id="image-selector" type="file" style="margin-bottom:5px ;"> 
+		
+       <div>
+		<img id="selected-image" width="400" src=""/>
+    </div>
+
+        <div style="margin-top: 5px;">
+        <button id="predict-button" class="btn btn-primary" style=" background: linear-gradient(to bottom right, #0066cc 0%, #66ffcc 100%);" >Predict</button>
+
+        <p style="font-weight: bold;">PREDICTION: <span id="result"></span></p>
+		<p style="font-weight: bold;">PROBABILITY: <span id="probability"></span></p>
+
+    </div>
+
+    </div>
+        
+
+	</body>
+    <script src="js\jqeury-1.11.js"></script>
+        
+    <script src="js\bootstrap.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+    let base64Image;
+    $("#image-selector").change(function() {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            let dataURL = reader.result;
+            $('#selected-image').attr("src", dataURL);
+            base64Image = dataURL.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
+            console.log(base64Image);
+        }
+        reader.readAsDataURL($("#image-selector")[0].files[0]);
+        $("#result").text("");
+        $("#probability").text("");
+
+    });
+
+    $("#predict-button").click(function(){
+            let message = {
+            image: base64Image
+        }
+        console.log(message);
+        $.post("http://127.0.0.1:5000/predict", JSON.stringify(message), function(response){
+            $("#result").text(response.prediction.result);
+            $("#probability").text(response.prediction.accuracy.toFixed(2));
+            console.log(response);
+        });
+    });
+
+      
+</script>
+
+</html>

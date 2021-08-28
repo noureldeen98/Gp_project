@@ -1,0 +1,19 @@
+.container .divs{
+    width: 300;
+     height: 200; 
+     margin: 10px;
+     display:inline-flex; 
+     background: linear-gradient(to bottom, #00ffff 0%, #3366cc 100%);
+
+}
+
+.container .divs:hover{
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+
+    box-shadow:
+    1px 1px gray,
+    2px 2px gray,
+    3px 3px gray;
+ }
